@@ -1,0 +1,153 @@
+
+
+<UNIT_TEST_ID hidden>BVGtdojgCes0foNZZ2b4a3EUs6UN7mtT</UNIT_TEST_ID>
+
+
+<div class="container-fluid">
+
+
+<form action="." method="post" class="form-horizontal">
+  {% csrf_token %}    
+  
+  {{ form.non_field_errors }}
+
+  <table class="table">
+
+    <tr>
+      <td width="25%">
+    
+        <div class="row">
+          <div class="panel panel-default">
+
+            <div class="panel-heading">
+              <h4>
+                <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
+                <small>Contact Info</small>
+              </h4>
+            </div>    
+          
+            <div class="panel-body">
+              <p>
+                7160 Bow Ridge St.
+                <br>
+                Pueblo, CO 81001
+                <br>
+                410-114-5574
+                <br>
+                bowride@reliablemail.com
+              </p>
+
+            </div>
+          </div>
+	</div>
+	
+      </td>
+
+      <td width="75%">
+
+        {% if form.errors %}
+          <div class="alert alert-danger" role="alert">
+            Your form has errors, check each field for correctness.
+          </div>
+        {% endif %}
+      
+        {% if status_message != '' %}
+          
+          {% if status_success == True %}
+            <div class="alert alert-success" role="alert">
+          {% else %}
+            <div class="alert alert-danger" role="alert">
+          {% endif %}
+          
+            {{ status_message }}
+        </div>
+        {% endif %}
+      
+	<div class="row">
+	  <div class="form-group">
+            <!-- <div class="panel panel-default"><div class="panel-body"> -->
+              <label for="{{ form.first_name.id_for_label }}" class="col-lg-2 col-lg-offset-1 control-label panel panel-body">{{ form.first_name.label }}</label>
+            <!-- </div></div> -->
+	    <div class="col-lg-8">
+	      {{ form.first_name }}
+	    </div>
+	    {% if form.first_name.errors %}
+	      {% for error in form.first_name.errors %}
+		<p class="help-block">{{ error }}</p>
+	      {% endfor %}
+	    {% endif %}
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="form-group">
+	    <label for="{{ form.middle_name.id_for_label }}" class="col-lg-2 col-lg-offset-1 control-label panel panel-body">{{ form.middle_name.label }}</label>
+	    <div class="col-lg-8">
+	      {{ form.middle_name }}
+	    </div>
+	    {% if form.middle_name.errors %}
+	      {% for error in form.middle_name.errors %}
+		<p class="help-block">{{ error }}</p>
+	      {% endfor %}
+	    {% endif %}
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="form-group">
+	    <label for="{{ form.last_name.id_for_label }}" class="col-lg-2 col-lg-offset-1 control-label panel panel-body">{{ form.last_name.label }}</label>
+	    <div class="col-lg-8">
+	      {{ form.last_name }}
+	    </div>
+	    {% if form.last_name.errors %}
+	      {% for error in form.last_name.errors %}
+		<p class="help-block">{{ error }}</p>
+	      {% endfor %}
+	    {% endif %}
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="form-group">
+	    <label for="{{ form.email.id_for_label }}" class="col-lg-2 col-lg-offset-1 control-label panel panel-body">{{ form.email.label }}</label>
+	    <div class="col-lg-8">
+	      {{ form.email }}
+	    </div>
+	    {% if form.email.errors %}
+	      {% for error in form.email.errors %}
+		<p class="help-block">{{ error }}</p>
+	      {% endfor %}
+	    {% endif %}
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="form-group">
+	    <label for="{{ form.comment.id_for_label }}" class="col-lg-2 col-lg-offset-1 control-label panel panel-body">{{ form.comment.label }}</label>
+	    <div class="col-lg-8">
+	      {{ form.comment }}
+	    </div>
+	    {% if form.comment.errors %}
+	      {% for error in form.comment.errors %}
+		<p class="help-block">{{ error }}</p>
+	      {% endfor %}
+	    {% endif %}
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="form-group">
+	    <div class="col-lg-offset-3 col-lg-8">
+	      <input type="submit" value="Submit" class="btn btn-lg btn-primary"/>
+	    </div>
+	  </div>
+	</div>
+    
+      </td>
+    </tr>
+  
+  </table>
+    
+</form>
+
+</div>
