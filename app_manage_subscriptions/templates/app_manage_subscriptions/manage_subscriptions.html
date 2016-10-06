@@ -1,0 +1,138 @@
+
+<UNIT_TEST_ID hidden>7wdfrNWdgU4LP0ZmKYRqRsH7KI04LbKA</UNIT_TEST_ID>
+
+
+<div class="container-fluid">
+
+  <form action="/manage_subscriptions/" method="post" class="form-horizontal">
+    {% csrf_token %}    
+
+    {{ form.non_field_errors }}
+
+    <table class="table">
+
+      <tr>
+	<td class="success" width="20%">
+      
+	  <div class="row">
+
+	    <div class="col-lg-12">
+            
+            Managing subscriptions for {{ form.email.value }}.
+            <br><br>
+	    Select the subscriptions you wish to receive. Subscriptions can be cancelled at any time.
+	    A checkmark next to the subscription description verifies that you wish to receive electronic mail
+	    with information about the category selected.
+	    
+	    {{ form.email }}
+	    
+	    </div>	
+	  </div>
+	  
+	</td>
+
+	<td width="10%">
+	</td>
+	
+	<td width="70%">
+	  
+	  <div class="row">
+	    <div class="form-group">
+	      <label for="{{ form.weekly_newsletter_subscription.id_for_label }}" class="col-lg-6 col-lg-offset-1 control-label">
+		{{ form.weekly_newsletter_subscription.label }}
+	      </label>
+	      <div class="col-lg-1 col-lg-offset-1">
+                <div class="checkbox">
+                  {{ form.weekly_newsletter_subscription }}
+                </div>
+	      </div>
+	      <div class="col-lg-3"></div>
+
+	      {% if form.weekly_newsletter_subscription.errors %}
+		{% for error in form.weekly_newsletter_subscription.errors %}
+		  <p class="help-block">{{ error }}</p>
+		{% endfor %}
+	      {% endif %}
+	    </div>
+	  </div>
+
+	  <div class="row">
+	    <div class="form-group">
+	      <label for="{{ form.job_search_subscription.id_for_label }}" class="col-lg-6 col-lg-offset-1 control-label">
+		{{ form.job_search_subscription.label }}
+	      </label>
+	      <div class="col-lg-1 col-lg-offset-1">
+                <div class="checkbox">
+                  {{ form.job_search_subscription }}
+                </div>
+	      </div>
+
+	      <div class="col-lg-3"></div>
+
+	      {% if form.job_search_subscription.errors %}
+		{% for error in form.job_search_subscription.errors %}
+		  <p class="help-block">{{ error }}</p>
+		{% endfor %}
+	      {% endif %}
+	    </div>
+	  </div>
+
+	  <div class="row">
+	    <div class="form-group">
+	      <label for="{{ form.deals_subscription.id_for_label }}" class="col-lg-6 col-lg-offset-1 control-label">
+		{{ form.deals_subscription.label }}
+	      </label>
+	      <div class="col-lg-1 col-lg-offset-1">
+                <div class="checkbox">
+                  {{ form.deals_subscription }}
+                </div>
+	      </div>
+
+	      <div class="col-lg-3"></div>
+
+	      {% if form.deals_subscription.errors %}
+		{% for error in form.deals_subscription.errors %}
+		  <p class="help-block">{{ error }}</p>
+		{% endfor %}
+	      {% endif %}
+	    </div>
+	  </div>
+
+	  
+	  <div class="row">
+	    <div class="form-group">
+	      <label for="{{ form.announcements_subscription.id_for_label }}" class="col-lg-6 col-lg-offset-1 control-label">
+		{{ form.announcements_subscription.label }}
+	      </label>
+	      <div class="col-lg-1 col-lg-offset-1">
+                <div class="checkbox">
+                  {{ form.announcements_subscription }}
+                </div>
+	      </div>
+
+	      <div class="col-lg-3"></div>
+
+	      {% if form.announcements_subscription.errors %}
+		{% for error in form.announcements_subscription.errors %}
+		  <p class="help-block">{{ error }}</p>
+		{% endfor %}
+	      {% endif %}
+	    </div>
+	  </div>	
+	  
+	  <div class="row">
+	    <div class="form-group">
+	      <div class="col-lg-offset-4 col-lg-8">
+		<input type="submit" value="Submit" class="btn btn-lg btn-primary"/>
+	      </div>
+	    </div>
+	  </div>
+      
+	</td>
+      </tr>
+    
+    </table>
+      
+  </form>
+
+</div>
